@@ -1,0 +1,114 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-y: hidden
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+:root {
+    --heading-font: "Poppins";
+    --body-font: "Montserrat", sans-serif;
+    --border-radius: 15px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 300px auto;
+    height: 100vh;
+}
+
+.sidePanel {
+    background-color: rgb(45, 47, 54);
+    grid-column: 1/2;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden
+}
+
+.sidePanel>p {
+    flex: 1;
+    margin-top: 15em;
+    font-family: var(--body-font);
+    color: white;
+    font-size: 15px;
+}
+
+.btnGroup {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    margin-top: 10em;
+    width: 100%;
+    padding: 50px 0;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.btnGroup>button {
+    background-color: rgb(45, 47, 54);
+    height: 80px;
+    width: 100%;
+    border: none;
+    font-family: var(--heading-font);
+    color: white;
+    font-size: 2em;
+    transition: 0.2s ease-in-out;
+}
+
+.btn:hover {
+    background-color: rgb(31, 33, 38);
+    cursor: pointer;
+}
+
+.mainPanel {
+    grid-column: 2/3;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    overflow-y: auto; 
+    height: 100vh;    
+    box-sizing: border-box;
+}
+
+.mainPanel>h1 {
+    font-family: var(--heading-font);
+    font-size: 3.5em;
+    margin: 0;
+}
+
+.mainPanel>h3 {
+    font-family: var(--body-font);
+    font-size: 2em;
+    margin: 0;
+    font-weight:normal;
+}
+
+.bookList {
+    flex: 1; /* take remaining space in .mainPanel */
+    width: 100%; /* cleaner layout */
+    border-radius: var(--border-radius);
+    background-color: rgb(218, 218, 218);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+.bookList > div {
+    height: 320px;
+    width: 220px;
+    background-color: coral;
+    
+}
