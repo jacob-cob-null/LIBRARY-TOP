@@ -14,24 +14,29 @@ const author = document.getElementById('author');
 const pages = document.getElementById('pages');
 const readStatus = document.getElementById('readStatus');
 
+// Add button sidepanel
 addButton.addEventListener('click', () => {
     modal.showModal();
 
 });
-submitBtn.addEventListener('click', (event) => { // Added 'event' parameter
-    event.preventDefault(); // Crucial: Prevents page reload
+// Submit button form
+submitBtn.addEventListener('click', (event) => { 
+    event.preventDefault(); 
     insertInput();
-    insertBooks(); // This will re-render the list after adding a new book
-    // renderBooks(); // REMOVED: Redundant as insertBooks now handles rendering
+    insertBooks();
+
     modal.close();
 })
+// Clear button modal
 clear.addEventListener('click', () => {
     if (confirm('Are you sure you want to clear your entire library? This cannot be undone.')) {
         bookList.innerHTML = '';
         books.length = 0;
-        insertBooks(); // Use insertBooks to display the empty state
+        insertBooks(); 
     }
 })
+
+// Close button sidepanel
 closeBtn.addEventListener('click', () => {
     modal.close();
 })
@@ -63,12 +68,13 @@ class Book {
         // Toggles between the string 'Read' and 'Unread'
         this.readStatus =
             this.readStatus === 'Read'
-                ? 'Unread' // Changed 'Not Read' to 'Unread' for consistency with initial books
+                ? 'Unread'
                 : 'Read';
     }
 }
 // BOOK ARRAY
 let books = []
+
 //INITIAL BOOKS
 function initialBooks() {
     let book1 = new Book("The Hobbit", "J.R.R. Tolkien", 310, 'Read');
@@ -79,33 +85,31 @@ function initialBooks() {
     let book6 = new Book("Dune", "Frank Herbert", 412, 'Unread');
 
     books.push(book1, book2, book3, book4, book5, book6);
-    insertBooks(); // Call insertBooks to render initial books
+    insertBooks(); 
 }
-// ADD BOOK, show modal, get input value, add to constructor and add to array
+// ADD BOOK
 function insertInput() {
-    let titleVal = bookName.value.trim(); // Added .trim()
-    let authorVal = author.value.trim(); // Added .trim()
-    let pagesVal = parseInt(pages.value); // Convert to number
-    let statusVal = readStatus.checked; // Get boolean from checkbox
+    let titleVal = bookName.value.trim();
+    let authorVal = author.value.trim(); 
+    let pagesVal = parseInt(pages.value); 
+    let statusVal = readStatus.checked; 
 
     if (!validateInput(titleVal, authorVal, pagesVal, statusVal)) {
         alert('Missing Fields, Please complete the form');
         return;
     }
-    // Convert boolean 'statusVal' to the string 'Read' or 'Unread' for the Book constructor
     let strStatus = (statusVal) ? 'Read' : 'Unread';
     let newBook = new Book(titleVal, authorVal, pagesVal, strStatus);
     books.push(newBook);
     forms.reset();
 }
 function validateInput(bookName, author, pages, readStatus) {
-    // Concise validation checks
     return !!bookName && !!author && pages > 0 && typeof readStatus === 'boolean';
 }
 
-// SHOW BOOK, iterate whole array and inject to html element
+// SHOW BOOK
 function insertBooks() {
-    bookList.innerHTML = ''; // Clear existing content
+    bookList.innerHTML = '';
 
     if (books.length === 0) {
         bookList.innerHTML = '<p class="empty-library-message">Your library is empty. Add some books!</p>';
@@ -113,9 +117,8 @@ function insertBooks() {
     }
 
     books.forEach((book, index) => {
-        let newBookDiv = document.createElement('div'); // Renamed `newBook` to `newBookDiv` for clarity
+        let newBookDiv = document.createElement('div'); 
         newBookDiv.setAttribute('class', 'books');
-        // Add data-index to the div for easy lookup
         newBookDiv.dataset.index = index;
 
         newBookDiv.innerHTML = `
@@ -135,7 +138,7 @@ function insertBooks() {
         bookList.append(newBookDiv);
     });
 }
-
+// event listener for delete and toggle function
 bookList.addEventListener('click', (event) => {
     const target = event.target; 
 
