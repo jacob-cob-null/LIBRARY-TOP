@@ -29,10 +29,11 @@ body {
     background-color: rgb(45, 47, 54);
     grid-column: 1/2;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-direction: column;
     align-items: center;
-    overflow-x: hidden
+    overflow-x: hidden;
+    padding: 25px;
 }
 
 .sidePanel>p {
@@ -41,6 +42,11 @@ body {
     font-family: var(--body-font);
     color: white;
     font-size: 15px;
+}
+.sidePanel > img {
+    height: 100px;
+    width: 100px;
+    filter: invert(100%);
 }
 
 .btnGroup {
@@ -122,14 +128,19 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    transition: 0.2s ease-in-out;
+}
+.books:hover {
+    transform: translateY(-7px);
 }
 
 .books>h1 {
     font-family: var(--heading-font);
-    font-size: 1.5em;
+    font-size: 1.3em;
     margin: 0;
     display: -webkit-box;
     -webkit-line-clamp: 3;
+    flex: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -159,16 +170,28 @@ body {
 }
 
 .books>div>button {
-    height: 50px;
-    border-radius: 5px;
-    background-color: rgb(234, 234, 234);
+    height: 35px;
+    border-radius: 10px;
     border: var(--border);
     font-family: var(--body-font);
     font-weight: 600;
 }
-
+.delete-book-btn {
+    background-color: rgb(209, 32, 32);
+    color: white;
+}
+.toggle-read-btn {
+    font-size: 12px;
+}
+.page-status {
+    display: flex;
+    
+}
 .books>div>button:hover {
-    background-color: rgb(185, 185, 185);
+    filter: brightness(110%);
+}
+.books>div>button:active {
+    filter: brightness(90%);
 }
 
 .modal {
