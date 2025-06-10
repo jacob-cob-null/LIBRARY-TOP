@@ -1,7 +1,19 @@
 // INITIALIZE HTML ELEMENTS
 const addButton = document.getElementById('add')
 const delButton = document.getElementById('del')
-const updateButton = document.getElementById('update')
+const clear = document.getElementById('clear')
+const modal = document.getElementById('modal');
+const closeBtn = document.getElementById('closeBtn');
+const submitBtn = document.getElementById('submitBtn');
+addButton.addEventListener('click', () => {
+    modal.showModal();
+})
+submitBtn.addEventListener('click', () => {
+    modal.close();
+})
+closeBtn.addEventListener('click', () => {
+    modal.close();
+})
 
 // BOOK OBJECT WITH CONSTRUCTOR
 

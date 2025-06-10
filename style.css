@@ -15,6 +15,7 @@ body {
     --heading-font: "Poppins";
     --body-font: "Montserrat", sans-serif;
     --border-radius: 15px;
+    --border: 2px rgb(207, 207, 207) solid;
     --shadow: 3px 3px 10px rgba(128, 128, 128, 0.479);
 }
 
@@ -78,6 +79,8 @@ body {
     overflow-y: auto;
     height: 100vh;
     box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
 }
 
 .mainPanel>h1 {
@@ -159,11 +162,90 @@ body {
     height: 50px;
     border-radius: 5px;
     background-color: rgb(234, 234, 234);
-    border: 2px rgb(207, 207, 207) solid;
+    border: var(--border);
     font-family: var(--body-font);
     font-weight: 600;
 }
 
 .books>div>button:hover {
     background-color: rgb(185, 185, 185);
+}
+
+.modal {
+    height: 450px;
+    width: 300px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    border: var(--border);
+    box-shadow: var(--shadow);
+    left: 10%;
+    padding: 20px;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 350px;
+
+}
+
+.inputs form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 10px;
+}
+
+.inputs form>label {
+    font-family: var(--body-font);
+    margin-top: 10px;
+}
+
+.inputs form>div>label {
+    font-family: var(--body-font);
+}
+
+.inputs button {
+    width: 90%;
+    height: 35px;
+    border-radius: 10px;
+    border: none;
+    align-self: center;
+    font-family: var(--heading-font);
+    font-size: 20px;
+}
+
+.modal h1 {
+    font-size: 2em;
+    font-family: var(--heading-font);
+    margin: 0
+}
+.inputs form > input {
+    height: 30px;
+}
+
+.modal-btns {
+    display: flex;
+    margin-top: 2em;
+    gap: 5px;
+}
+.modal-btns > button {
+    transition: 0.1s ease-in-out;
+}
+.modal-btns > button:hover {
+    filter: brightness(110%);
+}
+.modal-btns > button:active {
+    filter: brightness(90%);
+}
+
+.close {
+    background-color: rgb(194, 194, 194);
+    color: black;
+}
+
+.submit {
+    background-color: rgb(234, 99, 50);
+    color: white;
 }

@@ -12,7 +12,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
-
+    <script defer src="https://kit.fontawesome.com/0820e56690.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -22,7 +22,7 @@
             <div class="btnGroup">
                 <button id="add" class="btn add-button">Add Books</button>
                 <button id="del" class="btn del-button">Delete Books</button>
-                <button id="update" class="btn edit-button">Edit Book</button>
+                <button id="clear" class="btn edit-button">Clear Library</button>
             </div>
 
             <p>Library: The Odin Project</p>
@@ -31,7 +31,7 @@
         <section id="mainPanel" class="mainPanel">
             <h1>Welcome to Librago!</h1>
             <h3>Check out your current books!</h3>
-            
+
             <section id="bookList" class="bookList">
                 <div class="books">
                     <h1>TitledfajkhDADAWDawdawdawAWDAWwvdyi</h1>
@@ -42,11 +42,45 @@
                         <h4>Complete</h4>
                     </div>
                 </div>
-                
+
             </section>
-         
+            <div class="modalContainer">
+                <dialog id="modal" class="modal">
+                    <h1>Add a Book</h1>
+                    <div class="inputs">
+                        <form>
+                            <label for="bookName">Enter Book name</label>
+                            <input type="text" id="bookName" name="bookName">
+
+                            <label for="pages">Enter Number of Pages</label>
+                            <input type="number" id="pages" name="pages">
+
+                            <label for="readStatus">Enter Reading Status</label>
+                            <div>
+                                <input type="radio" id="read" name="readStatus">
+                                <label for="read">Already read</label>
+                            </div>
+
+                            <div>
+                                <input type="radio" id="notRead" name="readStatus">
+                                <label for="notRead">Haven't read yet</label>
+                            </div>
+
+                            <div class="modal-btns">
+                                <button class="close" id="closeBtn">Close</button>
+                                <button class="submit" id="submitBtn">New Book</button>
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </dialog>
+            </div>
+
         </section>
     </main>
+    <script src="script.js"></script>
 </body>
 
 </html>
